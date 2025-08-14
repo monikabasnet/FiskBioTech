@@ -1,11 +1,11 @@
 /* ========== CSS VARIABLES & RESET ========== */
 :root{
-  --bg: #0e1320;             /* deep blue-black */
-  --card: #11182a;           /* card surface */
-  --accent: #31d0aa;         /* teal/green accent */
-  --accent-2: #7aa8ff;       /* soft blue accent */
-  --text: #eaf2ff;           /* main text */
-  --muted: #a9b6cf;          /* secondary text */
+  --bg: #0e1320;
+  --card: #11182a;
+  --accent: #31d0aa;
+  --accent-2: #7aa8ff;
+  --text: #eaf2ff;
+  --muted: #a9b6cf;
   --ring: rgba(49,208,170,.35);
   --radius: 16px;
   --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -19,7 +19,7 @@ body{
               var(--bg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; /* optional, keeps gradient fixed during scroll */
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
 }
@@ -81,24 +81,95 @@ nav a:hover, nav a.active{color:var(--text);background:rgba(255,255,255,.06)}
 }
 .cta:hover{transform: translateY(-2px); box-shadow:0 10px 28px rgba(0,0,0,.35)}
 
-/* ========== CARDS & GRIDS ========== */
+/* ========== GRID LAYOUTS ========== */
 .grid{display:grid; gap:22px}
 .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
 .grid.cols-2{grid-template-columns: repeat(2, 1fr)}
 @media(max-width: 980px){.grid.cols-3{grid-template-columns: 1fr 1fr}}
 @media(max-width: 680px){.grid{grid-template-columns: 1fr}}
 
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.06); border-radius: var(--radius);
-  box-shadow: var(--shadow); overflow:hidden; transform: translateY(0); transition: .25s;
+/* ====== CARD BASE STYLES (applies to all cards) ====== */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+  cursor: pointer;
 }
-.card:hover{transform: translateY(-6px)}
-.card .media{height:220px; background:#09101e}
-.card .media img{width:100%;height:100%;object-fit:cover}
-.card .body{padding:18px}
-.card h3{font-size:1.1rem;margin-bottom:8px}
-.card p{color:var(--muted)}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  border: 1px solid var(--accent);
+}
+
+/* ====== CARD MEDIA (shared for all) ====== */
+.card .media,
+.card .image,
+.card .member-image {
+  background: #0b1222;
+  height: 220px;
+  overflow: hidden;
+}
+.card .media img,
+.card .image img,
+.card .member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.card:hover .media img,
+.card:hover .image img,
+.card:hover .member-image img {
+  transform: scale(1.05);
+}
+
+/* ====== CARD BODY ====== */
+.card .body,
+.card .info,
+.card .member-info {
+  padding: 16px;
+}
+.card h3,
+.card .member-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.card p,
+.card .member-info p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ====== RESPONSIVE MEDIA HEIGHT ====== */
+@media (max-width: 600px) {
+  .card .media,
+  .card .image,
+  .card .member-image {
+    height: 180px;
+  }
+}
+
+/* ====== MEMBERS GRID LAYOUT ====== */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* ====== MEMBER CARD MODIFIER ====== */
+.card--member {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+}
+.card--member:hover {
+  border: 1px solid var(--accent-2);
+}
 
 /* ========== BADGES & TAGS ========== */
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
@@ -132,77 +203,5 @@ footer{
 }
 
 /* ========== REVEAL ANIMATIONS ========== */
-.reveal{ opacity:0; transform: translateY(18px); transition: .6s ease }
+.reveal{ opacity:0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease }
 .reveal.visible{ opacity:1; transform: translateY(0) }
-
-
-/* ========== Members Grid ========== */
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
-
-/* ========== Dark-Themed Member Card ========== */
-.member-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.member-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-}
-
-/* ========== Member Image ========== */
-.member-image {
-  background: #0b1222;
-  height: 220px;
-  overflow: hidden;
-}
-
-.member-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.member-card:hover .member-image img {
-  transform: scale(1.05);
-}
-
-/* ========== Member Info ========== */
-.member-info {
-  padding: 16px;
-}
-
-.member-info h3 {
-  font-size: 1.15rem;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-
-.member-info p {
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-/* ========== Optional: Accent Border on Hover ========== */
-.member-card:hover {
-  border: 1px solid var(--accent);
-}
-
-/* ========== Responsive ========== */
-@media (max-width: 600px) {
-  .member-image {
-    height: 180px;
-  }
-}

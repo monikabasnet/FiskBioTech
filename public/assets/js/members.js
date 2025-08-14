@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const grid = document.getElementById('membersGrid');
   grid.innerHTML = members.map(member => `
-    <div class="member-card">
+    <div class="card card--member">
       <div class="member-image">
         <img src="${member.image}" alt="${member.name}">
       </div>
