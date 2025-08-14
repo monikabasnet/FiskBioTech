@@ -6,7 +6,7 @@ const grids = {
 
 const card = (a) => `
   <div class="card reveal">
-    <div class="media"><img src='Images/event1.jpg' alt="${a.title}"></div>
+    <div class="media"><img src="${a.imageUrl || 'Images/event1.jpg'}" alt="${a.title}"></div>
     <div class="body">
       <h3>${a.title}</h3>
       <p>${a.description || ''}</p>
