@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biotech Club — Join Us</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container inner">
+    <div class="brand"><div class="logo">🧬</div><span>Biotech Club</span></div>
+    <button class="nav-toggle">Menu</button>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="activities.html">Activities</a></li><li><a href="projects.html">Projects</a></li>
+      <li><a href="members.html">Members</a></li><li><a href="join.html">Join Us</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Join</div>
+    <h2>Tell us about you</h2>
+    <p class="lead">Submit your interest — your application will be saved to our database.</p>
+
+    <form class="form" id="joinForm">
+      <div class="input-row">
+        <input class="input" name="name" placeholder="Full Name" required />
+        <input class="input" name="email" type="email" placeholder="Email" required />
+      </div>
+      <div class="input-row">
+        <select class="input" name="role" required>
+          <option value="">Interested Role</option>
+          <option>Member</option>
+          <option>Volunteer</option>
+          <option>Project Lead</option>
+        </select>
+        <input class="input" name="interests" placeholder="Interests (e.g., CRISPR, Bioinformatics)"/>
+      </div>
+      <textarea class="input" name="message" placeholder="Tell us your goals or experience"></textarea>
+      <button class="button" type="submit" id="submitBtn">Submit Application</button>
+      <p id="joinFeedback" style="margin-top:10px;color:var(--muted)"></p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="container">© 2025 Biotech Club</div></footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/join.js"></script>
+</body>
+</html>

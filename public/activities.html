@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biotech Club — Activities</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container inner">
+    <div class="brand"><div class="logo">🧬</div><span>Biotech Club</span></div>
+    <button class="nav-toggle">Menu</button>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="activities.html">Activities</a></li><li><a href="projects.html">Projects</a></li>
+      <li><a href="members.html">Members</a></li><li><a href="join.html">Join Us</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">What’s happening</div>
+    <h2>Activities</h2>
+    <p class="lead">This list is fetched from our MongoDB database via the site’s API.</p>
+
+    <div id="ongoing" class="reveal" style="margin-top:24px">
+      <h3>Ongoing</h3>
+      <div class="grid cols-3" id="ongoingGrid"></div>
+    </div>
+
+    <div id="upcoming" class="reveal" style="margin-top:36px">
+      <h3>Upcoming</h3>
+      <div class="grid cols-3" id="upcomingGrid"></div>
+    </div>
+
+    <div id="past" class="reveal" style="margin-top:36px">
+      <h3>Past</h3>
+      <div class="grid cols-3" id="pastGrid"></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">© 2025 Biotech Club</div></footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/activities.js"></script>
+</body>
+</html>
