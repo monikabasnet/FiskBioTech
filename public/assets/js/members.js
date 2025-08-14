@@ -1,16 +1,24 @@
-const members = [
-  { name:'Alex Morgan', role:'President', image:'Images/member1.jpg' },
-  { name:'Priya Shah', role:'VP, Projects', image:'Images/member2.jpg' },
-  { name:'Diego Ramirez', role:'Events Lead', image:'Images/member3.jpg' },
-  { name:'Maya Chen', role:'Bioinformatics Lead', image:'Images/member4.jpg' },
-  { name:'Liam O’Connor', role:'Outreach', image:'Images/member5.jpg' },
-  { name:'Fatima Noor', role:'Treasurer', image:'Images/member6.jpg' }
-];
+document.addEventListener('DOMContentLoaded', () => {
+  const members = [
+    { name: 'Monika Basnet', role: 'President', image: 'assets/Images/member1.jpeg' },
+    { name: 'Amshu Walge', role: 'VP, Projects', image: 'assets/Images/member2.jpeg' },
+    { name: 'Diego Ramirez', role: 'Events Lead', image: 'assets/Images/member3.jpg' },
+    { name: 'Maya Chen', role: 'Bioinformatics Lead', image: 'assets/Images/member4.jpg' },
+    { name: 'Liam O’Connor', role: 'Outreach', image: 'assets/Images/member5.jpg' },
+    { name: 'Fatima Noor', role: 'Treasurer', image: 'assets/Images/member6.jpg' }
+  ];
 
-const grid = document.getElementById('membersGrid');
-grid.innerHTML = members.map(m => `
-  <div class="card reveal">
-    <div class="media"><img src="${m.image}" alt="${m.name}"></div>
-    <div class="body"><h3>${m.name}</h3><p>${m.role}</p></div>
-  </div>
-`).join('');
+  const grid = document.getElementById('membersGrid');
+  grid.innerHTML = members.map(member => `
+    <div class="member-card">
+      <div class="member-image">
+        <img src="${member.image}" alt="${member.name}">
+      </div>
+      <div class="member-info">
+        <h3>${member.name}</h3>
+        <p>${member.role}</p>
+      </div>
+    </div>
+  `).join('');
+});
+
